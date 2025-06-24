@@ -1,9 +1,34 @@
-import React from 'react'
+import React from "react";
+import "./user.css";
 
 const User = () => {
   return (
-    <div>Tabela de Usuários</div>
-  )
-}
+    <div className="userTable">
+      <button type="button" className="btn btn-primary">
+        Adicionar Usuário
+      </button>
+      <table className="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Usuário teste</td>
+            <td>usuarioteste@gmail.com</td>
+            <td>Brasil</td>
+            <td>Editar | Deletar</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  );
+};
 
-export default User
+export default User;
