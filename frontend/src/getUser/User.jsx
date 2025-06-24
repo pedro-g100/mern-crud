@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./user.css";
+import axios from "axios";
 
 const User = () => {
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8000/api/users");
+        setUsers(response.data);
+      } catch (error) {
+        console.error("Erro ao procurar dados:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="userTable">
       <button type="button" className="btn btn-primary">
@@ -18,20 +32,24 @@ const User = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Usuário teste</td>
-            <td>usuarioteste@gmail.com</td>
-            <td>Brasil</td>
-            <td className="actionButtons">
-              <button type="button" className="btn btn-primary">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </button>
-              <button type="button" className="btn btn-danger">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </td>
-          </tr>
+          {users.map((user, index) => {
+            return (
+              <tr>
+                <td>{index+1}</td>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.address}</td>
+                <td className="actionButtons">
+                  <button type="button" className="btn btn-primary">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                  </button>
+                  <button type="button" className="btn btn-danger">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
