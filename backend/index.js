@@ -18,6 +18,4 @@ mongoose
       console.log(`Servidor rodando na porta ${PORT}`);
     });
   })
-  .catch((error) => {
-    console.error(error);
-  });
+  .catch((error) =>console.error(error));
