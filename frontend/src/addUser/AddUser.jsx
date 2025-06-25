@@ -5,12 +5,13 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const AddUser = () => {
-  const users = {
+  const [user, setUser] = useState({
     name: "",
     email: "",
     address: "",
-  };
-  const [user, setUser] = useState(users);
+  });
+
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
   const inputHandler = (e) => {
@@ -20,20 +21,33 @@ const AddUser = () => {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8000/api/user",user)
-    .then((response)=>{
-      toast.success(response.data.message,{position: "bottom-right"});
-      navigate("/");
-    })
-    .catch((error) => {
+
+    const formData = new FormData();
+    formData.append("name", user.name);
+    formData.append("email", user.email);
+    formData.append("address", user.address);
+    if (image) {
+      formData.append("image", image);
+    }
+
+    await axios
+      .post("http://localhost:8000/api/user", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+      .then((response) => {
+        toast.success(response.data.message, { position: "bottom-right" });
+        navigate("/");
+      })
+      .catch((error) => {
         console.log(error);
+        toast.error("Erro ao adicionar morador", { position: "bottom-right" });
       });
   };
 
   return (
     <div className="addUser">
       <Link to="/" className="btn btn-secondary">
-        <i class="fa-solid fa-backward"></i> Voltar
+        <i className="fa-solid fa-backward"></i> Voltar
       </Link>
 
       <h3>Adicionar novo morador</h3>
@@ -69,6 +83,14 @@ const AddUser = () => {
             name="address"
             autoComplete="off"
             placeholder="Insira o endereço"
+          />
+        </div>
+        <div className="inputGroup">
+          <label htmlFor="image">Foto do morador:</label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={(e) => setImage(e.target.files[0])}
           />
         </div>
         <div className="inputGroup">

@@ -6,7 +6,7 @@
     padding: 50px;
     border-radius: 10px;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
-    overflow-x: auto; /* Garante que a tabela não estoure a tela em telas pequenas */
+    overflow-x: auto;
 }
 
 @media (max-width: 1024px) {

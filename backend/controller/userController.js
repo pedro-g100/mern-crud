@@ -2,14 +2,17 @@ import User from "../model/userModel.js";
 
 export const create = async (req, res) => {
   try {
-    const newUser = new User(req.body);
-    const { email } = newUser;
+    const { name, email, address } = req.body;
+    const image = req.file ? req.file.filename : null;
 
     const userExist = await User.findOne({ email });
     if (userExist) {
       return res.status(400).json({ message: "Morador já existe!" });
     }
+
+    const newUser = new User({ name, email, address, image });
     const savedData = await newUser.save();
+
     res.status(201).json({ message: "Morador adicionado com sucesso!" });
   } catch (error) {
     res.status(500).json({ errorMessage: error.message });
@@ -48,9 +51,11 @@ export const update = async (req, res) => {
     if (!userExist) {
       return res.status(404).json({ message: "Morador não encontrado!" });
     }
+
     const updatedData = await User.findByIdAndUpdate(id, req.body, {
       new: true,
     });
+
     res.status(200).json({ message: "Morador atualizado com sucesso!" });
   } catch (error) {
     res.status(500).json({ errorMessage: error.message });
@@ -64,6 +69,7 @@ export const deleteUser = async (req, res) => {
     if (!userExist) {
       return res.status(404).json({ message: "Morador não encontrado!" });
     }
+
     await User.findByIdAndDelete(id);
     res.status(200).json({ message: "Morador deletado com sucesso!" });
   } catch (error) {
