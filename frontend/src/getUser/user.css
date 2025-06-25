@@ -2,32 +2,74 @@
     width: 60%;
     margin: 50px auto;
     background-color: white;
+    opacity: 0.95;
     padding: 50px;
     border-radius: 10px;
-    box-shadow: 1px 1px 8px rgb(0,0,0,0.065);
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+    overflow-x: auto; /* Garante que a tabela não estoure a tela em telas pequenas */
+}
+
+@media (max-width: 1024px) {
+    .userTable {
+        width: 80%;
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .userTable {
+        width: 95%;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .userTable {
+        width: 98%;
+        padding: 20px;
+        margin: 30px auto;
+    }
+
+    .actionButtons button {
+        margin: 5px 5px;
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
 }
 
 .userTable table {
     width: 100%;
     margin-top: 30px;
+    border-collapse: collapse;
 }
 
 .userTable table thead th {
-    background-color: darkcyan;
+    background-color: #007bff;
     color: white;
+    padding: 10px;
 }
 
 .userTable table tbody td {
     padding: 10px;
     text-align: center;
     vertical-align: middle;
+    border-top: 1px solid #ddd;
+}
+
+.actionButtons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .actionButtons button {
     margin: 0 10px;
+    padding: 8px 12px;
+    cursor: pointer;
 }
 
 .noData {
     margin-top: 20px;
     text-align: center;
+    font-style: italic;
 }

@@ -36,7 +36,7 @@ const AddUser = () => {
         <i class="fa-solid fa-backward"></i> Voltar
       </Link>
 
-      <h3>Adicionar novo usuário</h3>
+      <h3>Adicionar novo morador</h3>
       <form className="addUserForm" onSubmit={submitForm}>
         <div className="inputGroup">
           <label htmlFor="name">Nome:</label>

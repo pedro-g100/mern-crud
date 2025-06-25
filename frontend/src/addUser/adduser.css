@@ -1,10 +1,33 @@
 .addUser {
     background-color: white;
+    opacity: 0.95;
     width: 25%;
     margin: 50px auto;
     padding: 40px;
     border-radius: 5px;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.065);
+}
+
+@media (max-width: 1024px) {
+    .addUser {
+        width: 50%;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .addUser {
+        width: 70%;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .addUser {
+        width: 90%;
+        padding: 20px;
+        margin: 20px auto;
+    }
 }
 
 .addUserForm .inputGroup {
@@ -20,17 +43,21 @@
 .addUserForm .inputGroup input {
     margin-bottom: 5px;
     padding: 10px;
+    font-size: 1rem;
 }
 
 .addUserForm .inputGroup button {
     margin-top: 8px;
+    padding: 10px;
+    font-size: 1rem;
 }
 
 .addUser h3 {
     margin-top: 30px;
     font-weight: bold;
     text-align: center;
-    color: darkcyan;
+    color: #007bff;
     text-transform: uppercase;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    font-size: 1.2rem;
 }

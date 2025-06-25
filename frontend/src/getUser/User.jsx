@@ -33,23 +33,23 @@ const User = () => {
   return (
     <div className="userTable">
       <Link to="/add" type="button" className="btn btn-primary">
-        Adicionar Usuário <i className="fa-solid fa-user-plus"></i>
+        Adicionar morador <i className="fa-solid fa-user-plus"></i>
       </Link>
 
       {users.length === 0 ? (
         <div className="noData">
-          <h3>Nenhum usuário encontrado!</h3>
-          <p>Adicione um novo usuário para começar</p>
+          <h3>Nenhum morador encontrado!</h3>
+          <p>Adicione um novo morador para começar</p>
         </div>
       ) : (
         <table className="table table-bordered">
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Name</th>
+              <th scope="col">Nome</th>
               <th scope="col">Email</th>
-              <th scope="col">Address</th>
-              <th scope="col">Actions</th>
+              <th scope="col">Endereço</th>
+              <th scope="col">Ações</th>
             </tr>
           </thead>
           <tbody>
