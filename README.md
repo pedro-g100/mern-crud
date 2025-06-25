@@ -1,4 +1,3 @@
-```markdown
 # Sistema de Gerenciamento de Moradores - Edifício Uberlândia Tower 🏢
 
 Este repositório apresenta um projeto completo de sistema CRUD desenvolvido com a stack MERN (MongoDB, Express, React, Node.js). A aplicação foi construída como parte da disciplina de Linguagem de Programação para Internet da Uniube, com foco na administração dos moradores do fictício Edifício Uberlândia Tower.
@@ -135,4 +134,3 @@ Este projeto foi desenvolvido por:
 
 Universidade de Uberaba (Uniube) – Curso de Sistemas de Informação  
 Disciplina: Linguagem de Programação para Internet
-```
