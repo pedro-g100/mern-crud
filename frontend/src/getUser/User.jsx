@@ -24,7 +24,7 @@ const User = () => {
       .delete(`http://localhost:8000/api/delete/user/${userId}`)
       .then((response) => {
         setUsers((prevUser) => prevUser.filter((user) => user._id !== userId));
-        toast.success(response.data.message, { position: "top-right" });
+        toast.success(response.data.message, { position: "bottom-right" });
       })
       .catch((error) => {
         console.log(error);
